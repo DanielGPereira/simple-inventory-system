@@ -38,13 +38,11 @@ class InventoryItem extends StatelessWidget {
           onPop!();
         });
       },
-        child: SizedBox(
+        child: Container(
+          color: Color.fromRGBO(13, 13, 13, 1),
           height: 150,
           child: Stack(
             children: [
-              Container(
-                color: const Color.fromRGBO(13, 13, 13, 1),
-              ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,18 +53,16 @@ class InventoryItem extends StatelessWidget {
                     color: Colors.blue,
                     constraints: const BoxConstraints(minWidth: double.infinity),
                     child: Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(8.0),
                       child: Text(
                         code,
-                        style: TextStyle(fontSize: 18, color: Colors.white),
                       ),
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: Text(
                       description,
-                      style: TextStyle(fontSize: 12, color: Colors.white),
                     ),
                   ),
                   Container(
@@ -74,17 +70,15 @@ class InventoryItem extends StatelessWidget {
                         border: Border(top: BorderSide(color: Colors.blue))),
                     constraints: const BoxConstraints(minWidth: double.infinity),
                     child: Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(8.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
                             storeAddress,
-                            style: TextStyle(fontSize: 16, color: Colors.white),
                           ),
                           Text(
                             '${amount} ${unit}',
-                            style: TextStyle(fontSize: 16, color: Colors.white),
                           ),
                         ],
                       ),

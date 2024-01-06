@@ -21,10 +21,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromRGBO(13, 13, 13, 1)),
+        primarySwatch: Colors.blue,
         useMaterial3: true,
       ),
-      home: InventoryOverviewPage()
+      darkTheme: ThemeData.dark(),
+      home: const InventoryOverviewPage()
     );
   }
 }

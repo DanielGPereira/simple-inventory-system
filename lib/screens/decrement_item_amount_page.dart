@@ -14,7 +14,8 @@ class DecrementItemAmountPage extends StatelessWidget {
     TextEditingController decrementAmountController = TextEditingController();
 
     return Scaffold(
-        floatingActionButton: FloatingActionButton(
+        floatingActionButton: FloatingActionButton( child: const Icon(Icons.remove),
+          backgroundColor: Colors.blue,
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
               return FutureBuilder(
@@ -23,34 +24,31 @@ class DecrementItemAmountPage extends StatelessWidget {
                   builder: (context, snapshot) {
                     switch (snapshot.connectionState) {
                       case ConnectionState.none:
-                        return CenteredCircularProgressIndicator();
+                        return const CenteredCircularProgressIndicator();
                       case ConnectionState.waiting:
-                        return CenteredCircularProgressIndicator();
+                        return const CenteredCircularProgressIndicator();
                       case ConnectionState.active:
-                        return CenteredCircularProgressIndicator();
+                        return const CenteredCircularProgressIndicator();
                       case ConnectionState.done:
                         Navigator.pop(context);
                     }
-                    return Text('Unknoun Error');
+                    return const Text('Unknoun Error');
                   });
             })).then((value) {
               Navigator.pop(context);
             });
           },
         ),
-        backgroundColor: Colors.black,
         appBar: AppBar(
-          title: Text(itemCode, style: TextStyle(color: Colors.white),),
-          backgroundColor: const Color.fromRGBO(13, 13, 13, 1),
+          title: Text(itemCode),
         ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              Text(
+              const Text(
                 'What is the amount you want to remove ?',
                 style: TextStyle(
-                    color: Colors.white,
                     fontSize: 40,
                     fontWeight: FontWeight.bold),
               ),
@@ -58,7 +56,7 @@ class DecrementItemAmountPage extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 24),
                 child: TextFormField(
                   controller: decrementAmountController,
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.white,
                       fontSize: 18,
                       fontWeight: FontWeight.bold),
@@ -66,7 +64,7 @@ class DecrementItemAmountPage extends StatelessWidget {
                       prefix: Padding(
                         padding: const EdgeInsets.only(right: 8),
                         child: Text(unit,
-                            style: TextStyle(color: Colors.white, fontSize: 18)),
+                            style: const TextStyle(color: Colors.white, fontSize: 18)),
                       )),
                 ),
               )

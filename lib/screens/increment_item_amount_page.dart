@@ -15,6 +15,8 @@ class IncrementItemAmountPage extends StatelessWidget {
 
     return Scaffold(
         floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.add),
+          backgroundColor: Colors.blue,
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
               return FutureBuilder(
@@ -23,50 +25,44 @@ class IncrementItemAmountPage extends StatelessWidget {
                   builder: (context, snapshot) {
                     switch (snapshot.connectionState) {
                       case ConnectionState.none:
-                        return CenteredCircularProgressIndicator();
+                        return const CenteredCircularProgressIndicator();
                       case ConnectionState.waiting:
-                        return CenteredCircularProgressIndicator();
+                        return const CenteredCircularProgressIndicator();
                       case ConnectionState.active:
-                        return CenteredCircularProgressIndicator();
+                        return const CenteredCircularProgressIndicator();
                       case ConnectionState.done:
                         Navigator.pop(context);
                     }
-                    return Text('Unknoun Error');
+                    return const Text('Unknoun Error');
                   });
             })).then((value) {
               Navigator.pop(context);
             });
           },
         ),
-        backgroundColor: Colors.black,
         appBar: AppBar(
-          title: Text(itemCode, style: TextStyle(color: Colors.white),),
-          backgroundColor: const Color.fromRGBO(13, 13, 13, 1),
+          title: Text(
+            itemCode,
+          ),
         ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              Text(
+              const Text(
                 'What is the amount you want to add ?',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 24),
                 child: TextFormField(
                   controller: incrementAmountController,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                      fontSize: 18, fontWeight: FontWeight.bold),
                   decoration: InputDecoration(
                       prefix: Padding(
                     padding: const EdgeInsets.only(right: 8),
-                    child: Text(unit,
-                        style: TextStyle(color: Colors.white, fontSize: 18)),
+                    child: Text(unit, style: const TextStyle(fontSize: 18)),
                   )),
                 ),
               )

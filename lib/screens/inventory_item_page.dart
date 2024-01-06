@@ -20,13 +20,10 @@ class _InventoryItemPageState extends State<InventoryItemPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.black,
         appBar: AppBar(
           title: Text(
             '${widget.itemCode}',
-            style: TextStyle(color: Colors.white),
           ),
-          backgroundColor: const Color.fromRGBO(13, 13, 13, 1),
         ),
         body: FutureBuilder<InventoryItemModel?>(
             future: InventoryItemDao.findItem(widget.itemCode),
@@ -63,14 +60,14 @@ class _InventoryItemPageState extends State<InventoryItemPage> {
                                     });
                                   });
                                 },
-                                child: Icon(
+                                style: const ButtonStyle(
+                                    backgroundColor:
+                                    MaterialStatePropertyAll(Colors.blue)),
+                                child: const Icon(
                                   Icons.add,
                                   size: 32,
                                   color: Colors.white,
                                 ),
-                                style: ButtonStyle(
-                                    backgroundColor:
-                                    MaterialStatePropertyAll(Colors.blue)),
                               ),
                               ElevatedButton(
                                 onPressed: () {
@@ -85,14 +82,14 @@ class _InventoryItemPageState extends State<InventoryItemPage> {
                                     });
                                   });
                                 },
-                                child: Icon(
+                                style: const ButtonStyle(
+                                    backgroundColor:
+                                    MaterialStatePropertyAll(Colors.blue)),
+                                child: const Icon(
                                   Icons.remove,
                                   size: 32,
                                   color: Colors.white,
                                 ),
-                                style: ButtonStyle(
-                                    backgroundColor:
-                                    MaterialStatePropertyAll(Colors.blue)),
                               ),
                               ElevatedButton(
                                 onPressed: () {
@@ -103,27 +100,27 @@ class _InventoryItemPageState extends State<InventoryItemPage> {
                                             .code} ?'), actions: [
                                       ElevatedButton(onPressed: () {
                                         Navigator.pop(context, false);
-                                      }, child: Icon(Icons.close)),
+                                      }, child: const Icon(Icons.close)),
                                       ElevatedButton(onPressed: () {
                                         Navigator.push(context, MaterialPageRoute(builder: (context) {
                                           return FutureBuilder(future: InventoryItemDao.removeInventoryItem(item.code), builder: (context, snapshot) {
                                             switch(snapshot.connectionState) {
 
                                               case ConnectionState.none:
-                                                return CenteredCircularProgressIndicator();
+                                                return const CenteredCircularProgressIndicator();
                                               case ConnectionState.waiting:
-                                                return CenteredCircularProgressIndicator();
+                                                return const CenteredCircularProgressIndicator();
                                               case ConnectionState.active:
-                                                return CenteredCircularProgressIndicator();
+                                                return const CenteredCircularProgressIndicator();
                                               case ConnectionState.done:
                                                 Navigator.pop(context);
                                             }
-                                            return Text('Unknown Error');
+                                            return const Text('Unknown Error');
                                           });
                                         })).then((value) {
                                           Navigator.pop(context, true);
                                         });
-                                      }, child: Icon(Icons.check)),
+                                      }, child: const Icon(Icons.check)),
                                     ],);
                                   }).then((value) => {
                                     if(value){
@@ -131,14 +128,14 @@ class _InventoryItemPageState extends State<InventoryItemPage> {
                                     }
                                   });
                                 },
-                                child: Icon(
+                                style: const ButtonStyle(
+                                    backgroundColor:
+                                    MaterialStatePropertyAll(Colors.blue)),
+                                child: const Icon(
                                   Icons.delete,
                                   size: 32,
                                   color: Colors.white,
                                 ),
-                                style: ButtonStyle(
-                                    backgroundColor:
-                                    MaterialStatePropertyAll(Colors.blue)),
                               )
                             ],
                           ),
@@ -147,7 +144,7 @@ class _InventoryItemPageState extends State<InventoryItemPage> {
                     );
                   }
               }
-              return Text('Unknown Error');
+              return const Text('Unknown Error');
             }));
   }
 }

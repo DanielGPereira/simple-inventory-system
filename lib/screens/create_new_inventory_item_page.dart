@@ -23,12 +23,9 @@ class _CreateNewInventoryItemPageState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(13, 13, 13, 1),
-        title: Text(
+        title: const Text(
           'Create Item',
-          style: TextStyle(color: Colors.white),
         ),
       ),
       body: Column(
@@ -41,27 +38,27 @@ class _CreateNewInventoryItemPageState
                     padding: const EdgeInsets.all(8.0),
                     child: TextFormField(
                       controller: code,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           hintText: 'Code',
-                          hintStyle: TextStyle(color: Colors.white)),
+                         ),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: TextFormField(
                       controller: description,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           hintText: 'Description',
-                          hintStyle: TextStyle(color: Colors.white)),
+                          ),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: TextFormField(
                       controller: storeAddress,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           hintText: 'Store Address',
-                          hintStyle: TextStyle(color: Colors.white)),
+                          ),
                     ),
                   ),
                   Row(
@@ -71,9 +68,9 @@ class _CreateNewInventoryItemPageState
                           padding: const EdgeInsets.all(8.0),
                           child: TextFormField(
                             controller: unit,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                                 hintText: 'Unit',
-                                hintStyle: TextStyle(color: Colors.white)),
+                           ),
                           ),
                         ),
                       ),
@@ -82,9 +79,10 @@ class _CreateNewInventoryItemPageState
                           padding: const EdgeInsets.all(8.0),
                           child: TextFormField(
                             controller: amount,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                                 hintText: 'Amount',
-                                hintStyle: TextStyle(color: Colors.white)),
+                              ),
+                            keyboardType: TextInputType.number,
                           ),
                         ),
                       ),
@@ -95,6 +93,7 @@ class _CreateNewInventoryItemPageState
           Padding(
             padding: const EdgeInsets.only(bottom: 64),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -108,13 +107,12 @@ class _CreateNewInventoryItemPageState
                                 .text))
                         );
                       },
-                      child: Text(
+                      child: const Text(
                         'Create',
                         style: TextStyle(color: Colors.blue),
                       )),
                 )
               ],
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             ),
           )
         ],

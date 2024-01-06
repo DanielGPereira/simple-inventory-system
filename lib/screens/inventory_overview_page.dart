@@ -31,6 +31,7 @@ class _InventoryOverviewPageState extends State<InventoryOverviewPage> {
         goToCreateNewInventoryItemPage(context);
       },
       child: const Icon(Icons.add, size: 32),
+      backgroundColor: Colors.blue,
     );
   }
 
@@ -54,11 +55,10 @@ class _InventoryOverviewPageState extends State<InventoryOverviewPage> {
         Icon(
           Icons.clear_rounded,
           size: 120,
-          color: Colors.white,
         ),
         Text(
           'The inventory is empty.\nCreate an item.',
-          style: TextStyle(color: Colors.white, fontSize: 32),
+          style: TextStyle(fontSize: 32),
         )
       ],
     ));
@@ -91,13 +91,10 @@ class _InventoryOverviewPageState extends State<InventoryOverviewPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
       appBar: AppBar(
         title: const Text(
           'Inventory Overview',
-          style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: const Color.fromRGBO(13, 13, 13, 1),
       ),
       body: FutureBuilder<List<InventoryItemModel>?>(
           future: InventoryItemDao.getAllInventoryItems(),
